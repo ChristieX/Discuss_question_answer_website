@@ -38,6 +38,7 @@
         include('./client/questions.php'); 
     }
     else{
+        include('./client/hero.php');
         include('./client/questions.php');
     }
     ?>

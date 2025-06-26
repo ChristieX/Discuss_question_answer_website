@@ -19,7 +19,6 @@
                 $query="select * from question where `title` like '%$search%'";
             }
             else{
-
                 $query="select * from question";
             }
             $result = $conn->query($query);

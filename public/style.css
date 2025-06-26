@@ -1,3 +1,7 @@
+nav{
+    /* background-color: #CBDCEB; */
+    background-color: red;
+}
 .question-list{
     border: 2px solid rgb(211, 209, 209);
     padding: 15px;
@@ -6,5 +10,5 @@
 .answer-wrapper{
     margin-bottom: 10px;
     padding: 5px;
-    border-bottom: 2px solid rgb(218, 218, 218);
+    border-bottom: 2px solid #CBDCEB;
 }
