@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+  <div class="container">
+    <a class="navbar-brand" href="./">
       <img src="./public/images/Logo.png" alt="Logo">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,14 +13,17 @@
           <a class="nav-link active" aria-current="page" href="./">Home</a>
         </li>
         <?php
-        if(isset($_SESSION['user']['username'])){ ?>
+        if (isset($_SESSION['user']['username'])) { ?>
           <li class="nav-item">
             <a class="nav-link" href="./server/requests.php?logout=true">Logout</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="?ask=true">Ask question</a>
           </li>
-        <?php }else{ ?>
+          <li class="nav-item">
+            <a class="nav-link" href="?u-id=<?php echo $_SESSION['user']['user_id']; ?>">My question</a>
+          </li>
+        <?php } else { ?>
           <li class="nav-item">
             <a class="nav-link" href="?login=true">Login</a>
           </li>
@@ -29,12 +32,14 @@
           </li>
         <?php } ?>
         <li class="nav-item">
-          <a class="nav-link" href="#">Category</a>
+          <a class="nav-link" href="?latest=true">Latest Question</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Latest Question</a>
-        </li>
+
       </ul>
     </div>
+    <form class="d-flex" action="">
+      <input class="form-control me-2" name="search" type="search" placeholder="Search Question" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
   </div>
 </nav>

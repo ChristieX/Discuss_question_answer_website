@@ -31,4 +31,14 @@ if(isset($_POST['ask'])){
     } else {
         echo "Answer not submitted";
     }
+}else if(isset($_GET["delete"])){
+    echo"hi";
+    $qid=$_GET["delete"];
+    $query=$conn->prepare("delete from question where id=$qid");
+    $result = $query->execute();
+    if($result){
+        header("location: /Discuss");
+    }else{
+        echo "Question not deleted";
+    }
 }

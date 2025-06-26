@@ -31,7 +31,8 @@ if (isset($_POST['signup'])) {
             $email = $row['email'];
             $user_id = $row['id'];
         }
-        $_SESSION["user"] = ["user_id"=>$id,"username" => $username, "email" => $email];
+        $_SESSION["user"] = ["user_id"=>$user_id ,"username" => $username, "email" => $email];
+        // echo $_SESSION["user"]["user_id"];
         header("location: /discuss");
     } else {
         echo "No new user registered";
