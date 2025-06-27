@@ -20,16 +20,24 @@
 </div> -->
 
 <div class="container">
+
     <div class="row min-vh-75 d-flex align-items-center justify-conten-center">
-        <div class="col-6 login-image object-fit-contain d-flex align-items-center justify-content-end ">
+        <div class="col-md-6 col-12 login-image object-fit-contain d-flex align-items-center justify-content-md-end justify-content-center ">
             <!-- <div class=""> -->
             <img src="./public/images/signup.png" class="w-75" alt="login image">
             <!-- </div> -->
         </div>
-        <div class="col-6  ">
+        <div class="col-md-6 col-12 ">
+
+
             <form action="/Discuss/server/requests.php" method="post">
-                <div class="login-form d-flex flex-column justify-content-between align-items-start m-3 w-75">
+                <div class="login-form d-flex flex-column justify-content-between align-items-md-start align-items-center m-3 w-75">
                     <h1 class="align-self-center">Sign up</h1>
+                    <?php if (isset($_GET['error']) && $_GET['error'] === 'username_exists'): ?>
+                        <div class="alert alert-danger text-center align-self-center" role="alert">
+                            Username already exists. Please choose a different one.
+                        </div>
+                    <?php endif; ?>
                     <div class="mb-3 w-100">
                         <label for="username" class="form-label">User Name</label>
                         <input name="username" type="text" class="form-control" id="username" aria-describedby="username" placeholder="Enter username">
@@ -40,7 +48,7 @@
                     </div>
                     <div class="mb-3 w-100">
                         <label for="password" class="form-label">password</label>
-            <input name="password" type="password" class="form-control" id="password" aria-describedby="password" placeholder="Enter password">
+                        <input name="password" type="password" class="form-control" id="password" aria-describedby="password" placeholder="Enter password">
                     </div>
                     <div class="mb-3 w-100 text-center">
                         <button type="submit" name="signup" class=" btn btn-lg w-50 btn-primary">Signup</button>

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-xl navbar-light bg-light">
+<nav class="navbar navbar-expand-xl navbar-light bg-light custom-navbar">
   <div class="container">
     <a class="navbar-brand" href="./">
       <img src="./public/images/Logo.png" alt="Logo">
@@ -8,7 +8,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <div class="container-fluid d-flex flex-column flex-xl-row align-items-start align-items-xl-center justify-content-between">
-        <ul class="navbar-nav d-flex align-items-center justify-content-between gap-2">
+        <ul class="navbar-nav d-flex align-items-xl-center justify-content-between gap-2">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="./">Home</a>
           </li>

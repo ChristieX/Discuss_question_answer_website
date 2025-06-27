@@ -6,16 +6,24 @@ if (isset($_POST['signup'])) {
     $password = $_POST['password'];
     $email = $_POST['email'];
 
-    $user = $conn->prepare("Insert into `users`
-    (`username`,`email`,`password`)
-    values ('$username','$email','$password');
-    ");
-    $result = $user->execute();
-    if ($result) {
-        $_SESSION["user"] = ["user_id" => $conn->insert_id, "username" => $username, "email" => $email];
-        header("location: /discuss");
-    } else {
-        echo "No new user registered";
+     $check_query = "SELECT * FROM users WHERE username = '$username'";
+    $existing_user = $conn->query($check_query);
+
+    if ($existing_user && $existing_user->num_rows > 0) {
+        header("Location: /Discuss/index.php?signup=1&error=username_exists");
+        exit();
+    } else{
+        $user = $conn->prepare("Insert into `users`
+        (`username`,`email`,`password`)
+        values ('$username','$email','$password');
+        ");
+        $result = $user->execute();
+        if ($result) {
+            $_SESSION["user"] = ["user_id" => $conn->insert_id, "username" => $username, "email" => $email];
+            header("location: /discuss");
+        } else {
+            echo "No new user registered";
+        }
     }
 } else if (isset($_POST['login'])) {
     $username = $_POST['username'];
@@ -35,7 +43,8 @@ if (isset($_POST['signup'])) {
         // echo $_SESSION["user"]["user_id"];
         header("location: /discuss");
     } else {
-        echo "No new user registered";
+         header("Location: /Discuss/index.php?login=1&error=no_users");
+        exit();
     }
 } else if (isset($_GET['logout'])) {
     session_unset();
